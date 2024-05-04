@@ -1,0 +1,14 @@
+
+body{
+    background-color: #363668;
+    color: #080808;
+}
+
+.flex-column{
+    display: flex; 
+    flex-direction: column;
+}
+
+top{
+    background-color: #090909
+}

@@ -4,11 +4,10 @@ import pandas as pd
 
 def conectar():
     return mysql.connect(
-        host="127.0.0.1",
-        port="3306",
-        user="root",
+        host="mysql.investeai.kinghost.net",
+        user="investeai",
         password="arthur301082",
-        database="form")
+        database="investeai")
 
 def executar_consulta(consulta, conexao):
     cursor = conexao.cursor(buffered=True)
@@ -28,9 +27,9 @@ def reconectar():
     raise Exception("Não foi possível reconectar ao servidor MySQL.")
 
 consultas = {
-    "Masculino": "SELECT COUNT(*) FROM form.informacoes WHERE genero = 'male'",
-    "Feminino": "SELECT COUNT(*) FROM form.informacoes WHERE genero = 'female'",
-    "Não identificado": "SELECT COUNT(*) FROM form.informacoes WHERE genero = 'none'",
+    "Masculino": "SELECT COUNT(*) FROM investeai.informacoes WHERE genero = 'male'",
+    "Feminino": "SELECT COUNT(*) FROM investeai.informacoes WHERE genero = 'female'",
+    "Não identificado": "SELECT COUNT(*) FROM investeai.informacoes WHERE genero = 'none'",
 }
 
 try:
@@ -62,9 +61,9 @@ else:
     plt.show()
 
 consultaid = {
-    "idade_homem": "SELECT idade FROM form.informacoes WHERE genero = 'male'",
-    "idade_mulher": "SELECT idade FROM form.informacoes WHERE genero = 'female'",
-    "idade_ni": "SELECT idade FROM form.informacoes WHERE genero = 'none'"
+    "idade_homem": "SELECT idade FROM investeai.informacoes WHERE genero = 'male'",
+    "idade_mulher": "SELECT idade FROM investeai.informacoes WHERE genero = 'female'",
+    "idade_ni": "SELECT idade FROM investeai.informacoes WHERE genero = 'none'"
 }
 
 resultados_idade = {}

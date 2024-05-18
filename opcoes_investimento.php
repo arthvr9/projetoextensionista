@@ -8,12 +8,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
+            background-color: #121212; /* Cor de fundo */
             margin: 0;
             padding: 0;
+            color: #ffffff; /* Cor das letras */
         }
         header {
-            background-color: #007bff;
+            background-color: #007bff; /* Cor do cabeçalho */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -22,7 +23,7 @@
             padding: 20px;
         }
         div {
-            background-color: #333;
+            background-color: #333; /* Cor do fundo do conteúdo */
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             padding: 20px;

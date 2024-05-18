@@ -9,12 +9,6 @@ if(isset($_POST['submit'])) {
     $stmt = $conexao->prepare("INSERT INTO informacoes (nome, idade, genero) VALUES (?, ?, ?)");
     $stmt->bind_param("sis", $nome, $idade, $genero);
 
-    if ($stmt->execute()) {
-        echo "Dados inseridos com sucesso!";
-    } else {
-        echo "Erro ao inserir dados: " . $conexao->error;
-    }
-
     $stmt->close();
 }
 ?>
@@ -29,12 +23,90 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="styles.css">  
     <title>IA com mercado</title>
     <style>
+        /* Estilos específicos da página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background-color: #043d7ad5;
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        form {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .radio-group {
+            display: flex;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #043d7ad5;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"],
+        input[type="radio"] {
+            background-color: #666;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 5px;
+            /* Adicionando estilo para tornar mais visíveis */
+            border: 2px solid #007bff;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+        }
+
         input[type="submit"] {
             background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -53,17 +125,17 @@ if(isset($_POST['submit'])) {
     </header>
 
     <div class="container">
-        <form action="final.php" method="POST"> <!-- Modificação aqui -->
+        <form action="final.php" method="POST">
             <div class="form-group">
-                <label for="nome">Digite seu nome</label>
-                <input type="text" id="nome" name="nome">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
             </div>
             <div class="form-group">
-                <label for="idade">Digite sua idade</label>
-                <input type="number" id="idade" name="idade" min="0"> 
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="0" required> 
             </div>       
             <div class="form-group">
-                <label>Seu gênero</label>
+                <label>Gênero:</label>
                 <div class="radio-group">
                     <input type="radio" name="genero" id="male" value="male">
                     <label for="male">Masculino</label>
@@ -96,3 +168,8 @@ if(isset($_POST['submit'])) {
     </footer>
 </body>
 </html>
+
+
+
+
+

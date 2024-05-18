@@ -7,7 +7,7 @@ $dbName = 'investeai';
 
 $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
-if($conexao->connect_errno) {
+if ($conexao->connect_errno) {
     echo json_encode(array("error" => "Erro ao conectar ao banco de dados"));
     exit;
 }
@@ -64,8 +64,14 @@ if ($conexao->query($sql) !== TRUE) {
     exit;
 }
 
-echo json_encode(array("perfil" => $perfil, "acoes" => $acoes));
+// Preparando a resposta em JSON
+$response = array(
+    "perfil" => $perfil,
+    "acoes" => $acoes,
+    "redirect" => "opcoes_investimento.php?perfil=" . urlencode($perfil) // Adiciona a URL de redirecionamento
+);
 
-$conexao->close();
+// Enviando a resposta em JSON
+echo json_encode($response);
 
 ?>

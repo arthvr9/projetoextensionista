@@ -49,6 +49,7 @@
                 switch($perfil) {
                     case "Baixo Risco":
                         echo "<ul>
+                                <p>Um perfil de investimento agressivo é o mais arriscado e tem a maior tolerância a riscos. Os investidores agressivos têm um maior conhecimento técnico e emocional para lidar com as oscilações do mercado. Eles investem a maior parte do seu dinheiro em renda variável, mas também podem diversificar em setores mais arriscados e com instrumentos derivativos.</p>	
                                 <li>Investir em títulos do governo;</li>
                                 <li>Aplicar em fundos de renda fixa;</li>
                                 <li>Explorar ETFs de baixa volatilidade.</li>

@@ -48,7 +48,7 @@
                 switch($perfil) {
                     case "Baixo Risco":
                         echo "<ul>
-                                <li>Investir em títulos do governo;</li>
+                                <li>teste em títulos do governo;</li>
                                 <li>Aplicar em fundos de renda fixa;</li>
                                 <li>Explorar ETFs de baixa volatilidade.</li>
                             </ul>";

@@ -1,3 +1,18 @@
+<?php
+if(isset($_POST['submit'])) {
+    include_once('config.php');
+
+    $nome = $_POST['nome'];
+    $idade = $_POST['idade'];
+    $genero = $_POST['genero'];
+
+    $stmt = $conexao->prepare("INSERT INTO informacoes (nome, idade, genero) VALUES (?, ?, ?)");
+    $stmt->bind_param("sis", $nome, $idade, $genero);
+
+    $stmt->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

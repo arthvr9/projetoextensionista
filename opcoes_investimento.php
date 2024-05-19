@@ -48,8 +48,11 @@
     <main>
         <div>
             <?php
+            // Verifica se o perfil foi passado via GET
             if(isset($_GET['perfil'])) {
                 $perfil = $_GET['perfil'];
+
+                // Mostra as opções de investimento conforme o perfil
                 switch($perfil) {
                     case "Baixo Risco":
                         echo "<ul>

@@ -1,25 +1,3 @@
-<?php
-header('Content-Type: text/html; charset=utf-8');
-if(isset($_POST['submit'])) {
-    include_once('config.php');
-
-    $nome = $_POST['nome'];
-    $idade = $_POST['idade'];
-    $genero = $_POST['genero'];
-
-    $stmt = $conexao->prepare("INSERT INTO informacoes (nome, idade, genero) VALUES (?, ?, ?)");
-    $stmt->bind_param("sis", $nome, $idade, $genero);
-
-    if ($stmt->execute()) {
-        echo "Dados inseridos com sucesso!";
-    } else {
-        echo "Erro ao inserir dados: " . $conexao->error;
-    }
-
-    $stmt->close();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -242,18 +220,17 @@ if(isset($_POST['submit'])) {
                 <label for="q10_nao">Não</label>
             </div>
 
-            <input type="submit" name="submit" value="Enviar">
+            <input type="submit" value="Enviar">
         </form>
     </div>
 
     <footer>
         <div class="container">
-            <p>Um projeto dos alunos Arthur, Guilherme, Marlon e Victor.</p>
+            <p>&copy; 2023 - Todos os direitos reservados.</p>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+<script>
     $(document).ready(function(){
         $('#questionario').submit(function(e){
             e.preventDefault();
@@ -263,13 +240,7 @@ if(isset($_POST['submit'])) {
                 data: $(this).serialize(),
                 dataType: 'json',
                 success: function(response){
-                    if(response.redirect) {
-                        // Redireciona para a página especificada na resposta JSON
-                        window.location.href = response.redirect;
-                    } else {
-                        // Se não houver URL de redirecionamento, mostra uma mensagem de erro
-                        alert('Erro: URL de redirecionamento não encontrada na resposta JSON.');
-                    }
+                    window.location.href = response.redirect;
                 },
                 error: function(xhr, status, error){
                     alert('Erro ao processar as respostas: ' + error);
@@ -278,3 +249,5 @@ if(isset($_POST['submit'])) {
         });
     });
 </script>
+</body>
+</html>

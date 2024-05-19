@@ -1,6 +1,6 @@
 <?php
 
-    $dbHost = 'mysql.investeai.kinghost.net';
+    $dbHost = 'mysql.investeaifsg.com.br';
     $dbUsername = 'investeai';
     $dbPassword = 'arthur301082';
     $dbName = 'investeai';

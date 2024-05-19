@@ -1,19 +1,3 @@
-<?php
-if(isset($_POST['submit'])) {
-    include_once('config.php');
-
-    $nome = $_POST['nome'];
-    $idade = $_POST['idade'];
-    $genero = $_POST['genero'];
-
-    $stmt = $conexao->prepare("INSERT INTO informacoes (nome, idade, genero) VALUES (?, ?, ?)");
-    $stmt->bind_param("sis", $nome, $idade, $genero);
-
-    $stmt->close();
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -41,8 +25,18 @@ if(isset($_POST['submit'])) {
         header {
             background-color: #043d7ad5;
             padding: 20px 0;
-            text-align: center;
             color: #fff;
+            text-align: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content img {
+            margin-right: 20px;
         }
 
         form {
@@ -119,8 +113,9 @@ if(isset($_POST['submit'])) {
 
 <body>
     <header>
-        <div class="container">
-            <h1>Mercado Financeiro e Programação</h1>
+        <div class="container header-content">
+            <img src="https://i.imgur.com/M2Orp5Q.png" alt="Investe Aí" width='150px' height='150px'>
+            <h1>Investe Aí</h1>
         </div>
     </header>
 
@@ -160,6 +155,7 @@ if(isset($_POST['submit'])) {
             <p>Investir é <strong>colocar dinheiro em algo que pode crescer ao longo do tempo para proporcionar retornos financeiros</strong>. Existem diferentes tipos de investimentos, como ações, títulos, imóveis, etc., cada um com seus benefícios e riscos próprios. Embora envolva sempre riscos, é possível alcançar objetivos em médio e longo prazo com <strong>educação e planejamento</strong>.</p>
         </section>
     </div>
+    <br><br><br><br><br><br>
 
     <footer>
         <div class="container">
@@ -168,8 +164,3 @@ if(isset($_POST['submit'])) {
     </footer>
 </body>
 </html>
-
-
-
-
-

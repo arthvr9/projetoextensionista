@@ -4,7 +4,7 @@ import pandas as pd
 
 def conectar():
     return mysql.connect(
-        host="mysql.investeai.kinghost.net",
+        host="mysql.investeaifsg.com.br",
         user="investeai",
         password="arthur301082",
         database="investeai")
@@ -60,27 +60,22 @@ else:
     plt.title("Distribuição de gênero")
     plt.show()
 
-consultaid = {
-    "idade_homem": "SELECT idade FROM investeai.informacoes WHERE genero = 'male'",
-    "idade_mulher": "SELECT idade FROM investeai.informacoes WHERE genero = 'female'",
-    "idade_ni": "SELECT idade FROM investeai.informacoes WHERE genero = 'none'"
+consultapi = {
+    "baixo": "SELECT perfil FROM investeai.informacoes WHERE perfil = 'Baixo Risco'",
+    "intermediario": "SELECT perfil FROM investeai.informacoes WHERE perfil = 'Intermediário'",
+    "alto": "SELECT perfil FROM investeai.informacoes WHERE perfil = 'Alto Risco'"
 }
 
-resultados_idade = {}
-for chave, consulta in consultaid.items():
-    resultados_idade[chave] = executar_consulta(consulta, conexao)
-
-idades_homem = [idade[0] for idade in resultados_idade['idade_homem'] if idade[0] is not None]
-idades_mulher = [idade[0] for idade in resultados_idade['idade_mulher'] if idade[0] is not None]
-idades_ni = [idade[0] for idade in resultados_idade['idade_ni'] if idade[0] is not None]
-
-plt.hist(idades_homem, bins=10, edgecolor='black', alpha=0.5, label='Homens')
-plt.hist(idades_mulher, bins=10, edgecolor='black', alpha=0.5, label='Mulheres')
-plt.hist(idades_ni, bins=10, edgecolor = 'black', alpha=0.5, label="Não identificado")
-plt.title('Distribuição de Idade por Gênero')
-plt.xlabel('Idade')
-plt.ylabel('Frequência')
-plt.legend()
+resultadopi = {}
+for chave, resultado in resultadopi.items():
+    if resultado:
+        dados[chave] = resultado[0][0]
+    else:
+        print(f"A consulta {chave} não retornou resultados.")
+        
+    plt.pie(dados.values(), labels=dados.keys(), autopct='%1.1f%%')
+    plt.title("Distribuição de perfil de investidor")
+    plt.show()
 plt.grid(True)
 plt.show()
 

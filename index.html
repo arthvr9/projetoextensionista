@@ -1,82 +1,181 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opções de Investimento</title>
+    <link rel="stylesheet" href="styles.css">  
+    <title>IA com mercado</title>
     <style>
+        /* Estilos específicos da página */
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Cor de fundo */
             margin: 0;
             padding: 0;
-            color: #ffffff; /* Cor das letras */
-        }
-        header {
-            background-color: #007bff; /* Cor do cabeçalho */
+            background-color: #1a1919;
             color: #fff;
-            padding: 20px;
+            max-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background-color: #273662;
+            padding:20px;
+            height: 80px;
+            color: #fff;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        main {
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content img {
+            margin-right: 10px;
+        }
+
+        form {
+            background-color: #262A40;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
         }
-        div {
-            background-color: #333; /* Cor do fundo do conteúdo */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .radio-group {
+            display: flex;
+            margin-top: 10px;
+            color: #fff;
+        }
+        @media screen and (max-width: 400px){
+            .radio-group {
+                flex-wrap: wrap;
+            }
+        }
+
+        input[type="radio"] {
+            margin: 0 !important
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #5D6DA0;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"],
+        input[type="radio"] {
+            background-color: #666;
+            color: #fff;
+            border: none;
+
+            border-radius: 5px;
+            /* Adicionando estilo para tornar mais visíveis */
+            border: 2px solid #007bff;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+            
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            height: 48px;
+            width: 100%;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 20px;
         }
-        ul {
-            padding-left: 20px;
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
         }
-        li {
-            margin-bottom: 10px;
+        .align-center{
+            display: flex;
+            align-items: center;
+            gap: 8px
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Opções de Investimento</h1>
-    </header>
-    <main>
-        <div>
-            <?php
-            if(isset($_GET['perfil'])) {
-                $perfil = $_GET['perfil'];
-                echo "<p>Com base no seu perfil de investimento \"$perfil\", aqui estão algumas opções recomendadas:</p>";
-                switch($perfil) {
-                    case "Baixo Risco":
-                        echo "<ul>
-                                <p>Um perfil de investimento agressivo é o mais arriscado e tem a maior tolerância a riscos. Os investidores agressivos têm um maior conhecimento técnico e emocional para lidar com as oscilações do mercado. Eles investem a maior parte do seu dinheiro em renda variável, mas também podem diversificar em setores mais arriscados e com instrumentos derivativos.</p>	
-                                <li>Investir em títulos do governo;</li>
-                                <li>Aplicar em fundos de renda fixa;</li>
-                                <li>Explorar ETFs de baixa volatilidade.</li>
-                            </ul>";
-                        break;
-                    case "Intermediário":
-                        echo "<ul>
-                                <li>Diversificar em uma combinação de ações e títulos;</li>
-                                <li>Considerar investimentos em diferentes setores e regiões;</li>
-                                <li>Explorar fundos diversificados.</li>
-                            </ul>";
-                        break;
-                    case "Alto Risco":
-                        echo "<ul>
-                                <li>Investir em ações de empresas emergentes;</li>
-                                <li>Explorar o mercado de criptomoedas;</li>
-                                <li>Considerar fundos de investimento de alto rendimento.</li>
-                            </ul>";
-                        break;
-                    default:
-                        echo "<p>Não foi possível determinar opções de investimento para o perfil \"$perfil\".</p>";
-                }
-            } else {
-                echo "<p>O perfil de investimento não foi fornecido.</p>";
-            }
-            ?>
+        <div class="container header-content">
+            <img src="https://i.imgur.com/M2Orp5Q.png" alt="Investe Aí" width='100px' height='100px'>
+            <h1>Investe Aí</h1>
         </div>
-    </main>
+    </header>
+
+    <div class="container" style="height: 100%;margin-top: 32px;" >
+        <form action="final.php" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="0" required> 
+            </div>       
+            <div class="form-group">
+                <label>Gênero:</label>
+                <div class="radio-group">
+                    <div class="align-center">
+                        <input type="radio" name="genero" id="male" value="male">
+                        <label for="male">Masculino</label>
+                    </div>
+                    <div class="align-center">
+                        <input type="radio" name="genero" id="female" value="female">
+                        <label for="female">Feminino</label>
+                    </div>
+                    <div class="align-center">
+                        <input type="radio" name="genero" id="none" value="none">
+                        <label for="none">Prefiro não informar</label>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" name="submit" value="Enviar">
+        </form>
+    </div>
+
+   
+    
+
+    <footer>
+      <p>Um projeto dos alunos Arthur, Guilherme, Marlon e Victor</p>
+       
+    </footer>
 </body>
 </html>

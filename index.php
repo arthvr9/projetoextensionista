@@ -84,20 +84,7 @@ if(isset($_POST['submit'])) {
             margin-top: 20px;
         }
 
-        footer {
-            background-color: #043d7ad5;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
 
-        footer a {
-            color: #fff;
-            text-decoration: none;
-        }
 
         input[type="text"],
         input[type="number"],
@@ -172,10 +159,5 @@ if(isset($_POST['submit'])) {
     </div>
     <br><br><br><br><br><br>
 
-    <footer>
-        <div class="container">
-            <p><a href="https://www.b3.com.br/pt_br/para-voce" target="_blank" rel="external">Bolsa de Valores - B3, acesse.</a></p>
-        </div>
-    </footer>
 </body>
 </html>

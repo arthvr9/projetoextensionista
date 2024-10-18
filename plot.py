@@ -4,10 +4,10 @@ import pandas as pd
 
 def conectar():
     return mysql.connect(
-        host="mysql.investeaifsg.com.br",
-        user="investeai",
-        password="arthur301082",
-        database="investeai")
+        host="",
+        user="",
+        password="",
+        database="")
 
 def executar_consulta(consulta, conexao):
     cursor = conexao.cursor(buffered=True)

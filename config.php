@@ -1,9 +1,9 @@
 <?php
 
-    $dbHost = 'mysql.investeaifsg.com.br';
-    $dbUsername = 'investeai';
-    $dbPassword = 'arthur301082';
-    $dbName = 'investeai';
+    $dbHost = '';
+    $dbUsername = '';
+    $dbPassword = '';
+    $dbName = '';
 
     $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 ?>

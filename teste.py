@@ -7,7 +7,7 @@ def conectar():
         host='127.0.0.1',
         port='3306',
         user='root',
-        password='arthur301082',
+        password='aaaaaaaaaaa',
         database='form')
 
 def executar_consulta(conexao, consulta):
